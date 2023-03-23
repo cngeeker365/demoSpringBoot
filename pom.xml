@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>demoSpringBoot</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>demoSpringBoot</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <!-- 继承spring boot的父工程 -->
+  <!-- spring boot父工程直接约束了常用依赖的版本 -->
+  <parent>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-parent</artifactId>
+     <version>1.5.9.RELEASE</version>
+  </parent>
+
+  <!-- 添加一个支持web应用的spring boot依赖 -->
+  <!-- spring boot会根据我们引入的依赖，判断出来我们要开发一个web工程 -->
+  <!-- 接着会对web工程需要的东西，比如tomcat服务器，自动进行配置 -->
+  <dependencies>
+     <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-web</artifactId>
+     </dependency>
+  </dependencies>
+
+  <!-- 引入一个spring boot插件，可以支持我们打包程序 -->
+  <!-- 打包时是需要将所有依赖的第三方jar包都打进来的，spring boot这个插件可以支持 -->
+  <build>
+     <plugins>
+       <plugin>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-maven-plugin</artifactId>
+       </plugin>
+     </plugins>
+  </build>
+
+</project>
